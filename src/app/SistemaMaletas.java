@@ -34,6 +34,8 @@ public class SistemaMaletas {
                 case 3 -> realizarVenta(cajero1);
                 case 4 -> mostrarTodos();
                 case 5 -> mostrarEmpleados();
+                case 0 -> System.out.println("Salida del sistema :)");
+                default -> System.out.println("Opcion invalida :(");
             }
         } while(opcion != 0);
     }
@@ -92,10 +94,12 @@ public class SistemaMaletas {
     }
 
     static void mostrarTodos() {
+
         for (Producto p : productos) p.mostrarDetalle();
     }
 
     static void mostrarEmpleados() {
+
         for (Empleado e : empleados) e.mostrarInfo();
     }
 }
