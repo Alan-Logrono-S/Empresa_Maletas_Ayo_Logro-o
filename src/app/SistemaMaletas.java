@@ -24,8 +24,6 @@ public class SistemaMaletas {
             System.out.println("3. Realizar venta (Cajero)");
             System.out.println("4. Ver todos los productos");
             System.out.println("5. Ver empleados registrados");
-            System.out.println("6. Agregar producto (Administrador)");
-            System.out.println("7. Ver productos con stock < 3");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = sc.nextInt();
@@ -36,9 +34,8 @@ public class SistemaMaletas {
                 case 3 -> realizarVenta(cajero1);
                 case 4 -> mostrarTodos();
                 case 5 -> mostrarEmpleados();
-                case 6 -> agregarProducto();
-                case 7 -> mostrarStockBajo();
-
+                case 0 -> System.out.println("Salida del sistema :)");
+                default -> System.out.println("Opcion invalida :(");
             }
         } while(opcion != 0);
     }
@@ -97,50 +94,12 @@ public class SistemaMaletas {
     }
 
     static void mostrarTodos() {
+
         for (Producto p : productos) p.mostrarDetalle();
     }
 
     static void mostrarEmpleados() {
+
         for (Empleado e : empleados) e.mostrarInfo();
     }
-
-    static void mostrarStockBajo() {
-        System.out.println("\nProductos con stock menor a 3:");
-        for (Producto p : productos)
-            if (p.getStock() < 3)
-                p.mostrarDetalle();
-    }
-
-    static void agregarProducto() {
-        sc.nextLine(); // Limpiar buffer
-        System.out.print("Tipo de producto (Mochila, Bolso, MaletaViaje, Lonchera): ");
-        String tipo = sc.nextLine();
-
-        System.out.print("Código: ");
-        String codigo = sc.nextLine();
-        System.out.print("Descripción: ");
-        String descripcion = sc.nextLine();
-        System.out.print("Ubicación: ");
-        String ubicacion = sc.nextLine();
-        System.out.print("Stock: ");
-        int stock = sc.nextInt();
-        System.out.print("Precio: ");
-        double precio = sc.nextDouble();
-
-        Producto nuevo;
-        switch (tipo.toLowerCase()) {
-            case "mochila" -> nuevo = new Mochila(codigo, descripcion, ubicacion, stock, precio);
-            case "bolso" -> nuevo = new Bolso(codigo, descripcion, ubicacion, stock, precio);
-            case "maletaviaje" -> nuevo = new MaletaViaje(codigo, descripcion, ubicacion, stock, precio);
-            case "lonchera" -> nuevo = new Lonchera(codigo, descripcion, ubicacion, stock, precio);
-            default -> {
-                System.out.println("Tipo de producto no válido.");
-                return;
-            }
-        }
-
-        productos.add(nuevo);
-        System.out.println("Producto agregado exitosamente.");
-    }
-
 }

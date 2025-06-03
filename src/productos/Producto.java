@@ -7,7 +7,8 @@ public class Producto {
     private int stock;
     private double precio;
 
-    public Producto(String codigo, String descripcion, String ubicacion, int stock, double precio) {
+    public Producto(String codigo, String descripcion, String ubicacion, int stock,
+                    double precio) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.ubicacion = ubicacion;
@@ -21,6 +22,11 @@ public class Producto {
 
     public String getCodigo() {
         return codigo;
+    }
+
+    public int getStock() {return stock;}
+    public void reducirStock(int cantidad){
+        stock -= cantidad;
     }
 
     public void mostrarDetalle() {
