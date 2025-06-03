@@ -15,3 +15,6 @@ public abstract class Empleado {
         System.out.println("Empleado: " + nombre + " | Rol: " + rol);
     }
 }
+
+
+

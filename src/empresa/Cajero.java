@@ -11,8 +11,8 @@ public class Cajero extends Empleado {
     }
 
     public void realizarVenta(Producto p, int cantidad) {
-        if (p.getPrecio()<cantidad){
-            System.out.println("No hay suficiente stock disponible.");
+        if (p.getStock()<cantidad){
+            System.out.println("Stock insuficiente.Stock disponible:"+ p.getStock() );
             return;
         }
         double subtotal = p.getPrecio() * cantidad;
@@ -24,6 +24,10 @@ public class Cajero extends Empleado {
     }
 
     public void consultarDetalle(Producto p) {
+        p.mostrarDetalle();
+    }
+    public void consultarDetalle(Producto p, String mensaje) {
+        System.out.println(mensaje);
         p.mostrarDetalle();
     }
 }
