@@ -34,4 +34,13 @@ public class Producto {
     public void mostrarPrecio() {
         System.out.println("\nPrecio del producto: $" + precio);
     }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void reducirStock(int cantidad) {
+        this.stock -= cantidad;
+    }
+
 }
