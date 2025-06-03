@@ -10,7 +10,7 @@ public abstract class Empleado {
         this.id = id;
         this.rol = rol;
     }
-
+//WADA
     public void mostrarInfo() {
         System.out.println("Empleado: " + nombre + " | Rol: " + rol);
     }
